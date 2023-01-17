@@ -1,4 +1,4 @@
 package com.example.backend.Entity;
 
-public class PatientForm {
+public class Specialization {
 }
