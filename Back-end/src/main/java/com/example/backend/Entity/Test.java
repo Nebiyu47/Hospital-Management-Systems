@@ -1,11 +1,19 @@
 package com.example.backend.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "Test")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Test {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

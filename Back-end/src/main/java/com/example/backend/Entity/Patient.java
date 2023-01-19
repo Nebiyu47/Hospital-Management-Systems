@@ -1,13 +1,21 @@
 package com.example.backend.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
 @Table(name="patient")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Patient {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "pat_id")
     private Long Id;
     @Column(name = "firstName")
     private String firstName;

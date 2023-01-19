@@ -1,10 +1,18 @@
 package com.example.backend.Entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.dialect.function.LpadRpadPadEmulation;
 
 @Entity
 @Table(name = "doctor")
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
