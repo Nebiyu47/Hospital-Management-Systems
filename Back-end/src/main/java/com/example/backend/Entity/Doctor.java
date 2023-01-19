@@ -17,7 +17,7 @@ public class Doctor {
     @Column(name = "doctorPhoneNo")
     private Long doctorPhoneNumber;
     @OneToOne
-    @JoinColumn(name = "Dep_id")
+    @JoinColumn(name = "DEP_Id")
     private Department department;
     @OneToOne
     @JoinColumn(name = "Spec_id")

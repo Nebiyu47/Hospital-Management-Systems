@@ -9,6 +9,6 @@ public class Specialization {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Spec_id")
     private Long id;
-    @Column(n)
+    @Column(name = "speciality")
     private String speciality;
 }
