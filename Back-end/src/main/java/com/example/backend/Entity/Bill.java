@@ -1,10 +1,8 @@
 package com.example.backend.Entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.Accessors;
 
 import java.util.Date;
 
@@ -14,6 +12,7 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Setter
+@Data
 public class Bill {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,11 +22,15 @@ public class Bill {
     @Temporal(TemporalType.DATE)
     private Date billDate;
     @Column(name = "insuared")
+    @Getter
+    @Accessors(fluent = true)
     private boolean insuared;
     @OneToOne
     @JoinColumn(name = "ins_id")
     private Insurance insurance;
     @Column(name="isInsurance")
+    @Getter
+    @Accessors(fluent = true)
     private boolean isInsuared;
     @OneToOne
     @JoinColumn(name="pat_id")
