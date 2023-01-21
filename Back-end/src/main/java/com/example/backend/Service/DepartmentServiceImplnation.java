@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -45,7 +46,7 @@ public class DepartmentServiceImplnation implements DepartmentService{
     }
 
     @Override
-    public DepartmentDto getById(DepartmentDto department, long id) throws Exception {
+    public DepartmentDto getById( long id) throws Exception {
         Department department1 = departmentRepository.findById(id).orElseThrow(()->new Exception("No id Found"+id));
         return convertDepartmentModelTODto(department1);
     }
@@ -62,6 +63,10 @@ public class DepartmentServiceImplnation implements DepartmentService{
 
     @Override
     public Map<String, Boolean> delete(Long id) throws Exception {
-        return null;
+       Department department1 = convertDepartmentDtoToModel(getById(id));
+       departmentRepository.delete(department1);
+       Map<String,Boolean> response = new HashMap<>();
+       response.put("Deleted",Boolean.TRUE);
+       return response;
     }
 }

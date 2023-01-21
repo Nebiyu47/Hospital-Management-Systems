@@ -8,7 +8,7 @@ import java.util.Map;
 public interface DepartmentService {
     public DepartmentDto save(DepartmentDto department);
     public DepartmentDto update(DepartmentDto department, Long id) throws Exception;
-    public DepartmentDto getById(DepartmentDto department, long id) throws  Exception;
+    public DepartmentDto getById( long id) throws  Exception;
     public List<DepartmentDto> getAll();
     public Map<String,Boolean> delete( Long id) throws Exception;
 }
