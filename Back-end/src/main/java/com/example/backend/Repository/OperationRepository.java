@@ -1,4 +1,7 @@
 package com.example.backend.Repository;
 
-public interface OperationRepository {
+import com.example.backend.Entity.Operation;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface OperationRepository extends JpaRepository<Operation,Long> {
 }

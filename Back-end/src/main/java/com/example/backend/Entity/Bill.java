@@ -21,6 +21,8 @@ public class Bill {
     @Column(name = "billDate")
     @Temporal(TemporalType.DATE)
     private Date billDate;
+    @Column(name = "billDate")
+    private double billAmount;
     @Column(name = "insuared")
     private boolean insuared;
     @OneToOne
@@ -32,18 +34,20 @@ public class Bill {
     @JoinColumn(name="pat_id")
     private Patient patient;
 
+
+    public boolean getInsuared(){
+        return insuared;
+    }
+    public void setinsuared(boolean insuared){
+        this.insuared=insuared;
+    }
+
     public boolean getisInsuared() {
         return isInsuared;
     }
 
     public void setInsuared(boolean isinsuared) {
         this.isInsuared=isinsuared;
-    }
-    public boolean getInsuared(){
-        return insuared;
-    }
-    public void setinsuared(boolean insuared){
-        this.insuared=insuared;
     }
 
 }

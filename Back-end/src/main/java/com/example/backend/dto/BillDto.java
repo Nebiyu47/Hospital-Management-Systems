@@ -11,6 +11,7 @@ import java.util.Date;
 public class BillDto {
   private Long id;
     private Date billDate;
+    private double billAmount;
     private boolean insuared;
     private Insurance insurance;
     private boolean isInsuared;
@@ -19,6 +20,7 @@ public class BillDto {
     public BillDto(Bill bill){
         this.id=bill.getId();
         this.billDate=bill.getBillDate();
+        this.billAmount=bill.getBillAmount();
         this.insuared=bill.getInsuared();
         this.isInsuared=bill.getisInsuared();
         this.patient=bill.getPatient();

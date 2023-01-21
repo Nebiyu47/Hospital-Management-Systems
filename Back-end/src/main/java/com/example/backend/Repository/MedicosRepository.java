@@ -1,4 +1,7 @@
 package com.example.backend.Repository;
 
-public interface MedicosRepository {
+import com.example.backend.Entity.Medicos;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface MedicosRepository extends JpaRepository<Medicos,Long> {
 }
