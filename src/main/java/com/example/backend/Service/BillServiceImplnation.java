@@ -13,7 +13,7 @@ import java.util.*;
 @Transactional
 public class BillServiceImplnation implements BillService {
 
-    @Autowired
+    @Autowired(required = false)
     private BillRepository billRepository;
 
     private Bill convertBillDtoToModel(BillDto billDto){
