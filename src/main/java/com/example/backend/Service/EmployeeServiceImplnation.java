@@ -75,6 +75,8 @@ public class EmployeeServiceImplnation implements EmployeeService {
     @Override
     public Map<String, Boolean> delete(Long id) throws Exception {
         Employee employee = employeeRepository.findById(id).orElseThrow(() -> new Exception("Id is Not Found" + id));
+        employeeRepository.delete(employee);
+        EmployeeDto employeeDto= convertModelToDto(employee);
         Map<String, Boolean> map = new HashMap<>();
         map.put("id is Found", Boolean.TRUE);
         return map;

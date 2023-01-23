@@ -8,6 +8,7 @@ import java.util.Map;
 public interface BillService {
     public BillDto save(BillDto billDto);
     public BillDto getById(long id) throws Exception;
+    public BillDto update(BillDto billDto,Long id) throws Exception;
     public List<BillDto> getAll();
     public Map<String , Boolean> delete(long id) throws Exception;
 }

@@ -23,7 +23,7 @@ public class BillServiceImplnation implements BillService {
         bill.setBillAmount(billDto.getBillAmount());
         bill.setinsuared(billDto.isInsuared());
         bill.setInsurance(billDto.getInsurance());
-        bill.setInsuared(billDto.isInsuared());
+
           return bill;
     }
     private BillDto convertModelToDto(Bill bill){
@@ -35,6 +35,17 @@ public class BillServiceImplnation implements BillService {
         bill.setBillDate(new Date());
         return convertModelToDto(billRepository.save(bill));
     }
+    @Override
+    public BillDto update(BillDto billDto ,Long id) throws Exception{
+        Bill bill= billRepository.findById(id).orElseThrow(()-> new Exception("Id is not Found"+id));
+        bill.setId(billDto.getId());
+        bill.setBillDate(billDto.getBillDate());
+        bill.setBillAmount(billDto.getBillAmount());
+        bill.setinsuared(billDto.isInsuared());
+        return convertModelToDto(bill);
+    }
+
+
     @Override
     public BillDto getById(long id) throws Exception {
         Bill bill = billRepository.findById(id).orElseThrow(()->  new Exception("Id is not found"+ id));

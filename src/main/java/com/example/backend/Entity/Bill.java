@@ -12,7 +12,6 @@ import java.util.Date;
 @NoArgsConstructor
 @Getter
 @Setter
-@Data
 public class Bill {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -28,8 +27,7 @@ public class Bill {
     @OneToOne
     @JoinColumn(name = "ins_id")
     private Insurance insurance;
-    @Column(name="isInsurance")
-    private boolean isInsuared;
+
     @OneToOne
     @JoinColumn(name="pat_id")
     private Patient patient;
@@ -42,12 +40,6 @@ public class Bill {
         this.insuared=insuared;
     }
 
-    public boolean getisInsuared() {
-        return isInsuared;
-    }
 
-    public void setInsuared(boolean isinsuared) {
-        this.isInsuared=isinsuared;
-    }
 
 }

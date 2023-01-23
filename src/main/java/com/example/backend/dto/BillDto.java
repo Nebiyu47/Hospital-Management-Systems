@@ -22,7 +22,7 @@ public class BillDto {
         this.billDate=bill.getBillDate();
         this.billAmount=bill.getBillAmount();
         this.insuared=bill.getInsuared();
-        this.isInsuared=bill.getisInsuared();
+        this.insurance=bill.getInsurance();
         this.patient=bill.getPatient();
     }
 }
