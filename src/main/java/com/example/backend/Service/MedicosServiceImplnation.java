@@ -94,5 +94,10 @@ public class MedicosServiceImplnation implements MedicosService{
     @Override
     public Long getTotal(Long id) {
         List<MedicosDto> medicosDtos = getByPatientId(id);
+        long total = 0;
+        for(MedicosDto medicos: medicosDtos){
+            total+=medicos.getTotal();
+        }
+        return total;
     }
 }
