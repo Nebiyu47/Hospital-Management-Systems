@@ -19,10 +19,10 @@ public class Ward {
     private Long id;
     @Column(name = "wardName")
     private String wardName;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "Doc_id")
     private Doctor doctor;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "pat_id")
     Patient patient;
 

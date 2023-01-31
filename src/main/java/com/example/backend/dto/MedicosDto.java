@@ -7,9 +7,15 @@ import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Date;
 @Data
+@Getter
+@Setter
+@NoArgsConstructor
 public class MedicosDto {
     private Long id;
     private String medRecorded;
@@ -21,7 +27,7 @@ public class MedicosDto {
     private Doctor doctor;
 
   public MedicosDto(Medicos medicos){
-      this.id=medicos.getId();
+      this.id=medicos.getMed_Id();
       this.medRecorded=medicos.getMedRecorded();
       this.date=medicos.getDate();
       this.price=medicos.getPrice();

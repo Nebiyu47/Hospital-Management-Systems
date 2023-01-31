@@ -4,9 +4,12 @@ import com.example.backend.Entity.Insurance;
 import com.example.backend.Entity.Patient;
 import jakarta.persistence.Column;
 import jakarta.persistence.OneToOne;
-import lombok.Data;
+import lombok.*;
 
-@Data
+
+@NoArgsConstructor
+@Getter
+@Setter
 public class InsuranceDto {
 
     private Long id;

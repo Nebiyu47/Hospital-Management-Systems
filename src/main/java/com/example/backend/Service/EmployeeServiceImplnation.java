@@ -22,10 +22,11 @@ public class EmployeeServiceImplnation implements EmployeeService {
     private Employee convertDtoToModel(EmployeeDto employeeDto) {
         Employee employee = new Employee();
         employee.setId(employeeDto.getId());
+        employee.setMobileNumber(employeeDto.getMobileNumber());
         employee.setEmployeeName(employeeDto.getEmployeeName());
-        employee.setEmployeeAddress(employee.getEmployeeAddress());
-        employee.setDepartment(employee.getDepartment());
-        employee.setMobileNumber(employee.getMobileNumber());
+        employee.setEmployeeAddress(employeeDto.getEmployeeAddress());
+        employee.setDepartment(employeeDto.getDepartment());
+
 
         return employee;
     }
@@ -47,9 +48,9 @@ public class EmployeeServiceImplnation implements EmployeeService {
 
         Employee employee = employeeRepository.findById(id).orElseThrow(() -> new Exception("Id is not Found" + id));
         employee.setId(employeeDto.getId());
+        employee.setMobileNumber(employeeDto.getMobileNumber());
         employee.setEmployeeName(employeeDto.getEmployeeName());
         employee.setEmployeeAddress(employeeDto.getEmployeeAddress());
-        employee.setMobileNumber(employeeDto.getMobileNumber());
         employee.setDepartment(employeeDto.getDepartment());
         EmployeeDto employeeDto1 = convertModelToDto(employeeRepository.save(employee));
         return employeeDto1;

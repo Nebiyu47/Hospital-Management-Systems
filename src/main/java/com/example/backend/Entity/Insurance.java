@@ -14,13 +14,13 @@ import lombok.Setter;
 @Setter
 public class Insurance {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ins_id")
     private Long id;
     @Column(name = "billAmount")
     private double billAmount;
     @Column(name = "expiryDate")
     private String expiryDate;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Patient patient;
 }

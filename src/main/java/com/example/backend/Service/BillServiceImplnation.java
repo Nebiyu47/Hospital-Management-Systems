@@ -10,12 +10,15 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-@Transactional
+
 public class BillServiceImplnation implements BillService {
 
-    @Autowired(required = false)
+    @Autowired
     private BillRepository billRepository;
 
+    public BillServiceImplnation(BillRepository billRepository){
+        this.billRepository=billRepository;
+    }
     private Bill convertBillDtoToModel(BillDto billDto){
         Bill bill = new Bill();
         bill.setId(billDto.getId());
@@ -23,18 +26,21 @@ public class BillServiceImplnation implements BillService {
         bill.setBillAmount(billDto.getBillAmount());
         bill.setinsuared(billDto.isInsuared());
         bill.setInsurance(billDto.getInsurance());
+        bill.setPatient(billDto.getPatient());
 
           return bill;
     }
     private BillDto convertModelToDto(Bill bill){
         return new BillDto(bill);
     }
+
     @Override
     public BillDto save(BillDto billDto){
         Bill bill = convertBillDtoToModel(billDto);
         bill.setBillDate(new Date());
         return convertModelToDto(billRepository.save(bill));
     }
+
     @Override
     public BillDto update(BillDto billDto ,Long id) throws Exception{
         Bill bill= billRepository.findById(id).orElseThrow(()-> new Exception("Id is not Found"+id));
@@ -53,7 +59,6 @@ public class BillServiceImplnation implements BillService {
 
     }
 
-
     @Override
     public List<BillDto> getAll(){
        List<Bill> billList= billRepository.findAll();
@@ -63,6 +68,7 @@ public class BillServiceImplnation implements BillService {
        }
        return billDtos;
     }
+
     @Override
     public Map<String , Boolean> delete(long id) throws Exception{
         Bill bill = convertBillDtoToModel(getById(id));

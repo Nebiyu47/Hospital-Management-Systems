@@ -3,11 +3,16 @@ package com.example.backend.dto;
 import com.example.backend.Entity.Bill;
 import com.example.backend.Entity.Insurance;
 import com.example.backend.Entity.Patient;
-import lombok.Data;
+import lombok.*;
+import lombok.extern.jackson.Jacksonized;
 
 
 import java.util.Date;
-@Data
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class BillDto {
   private Long id;
     private Date billDate;

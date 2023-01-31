@@ -17,14 +17,13 @@ import java.util.Date;
 public class Test {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+    @Column(name = "tid")
     private Long id;
     @Column(name = "test_name")
     private String testName;
     @Column (name="testDate")
-    @Temporal(TemporalType.DATE)
-    private Date testDate;
-    @OneToOne
+    private String testDate;
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
 

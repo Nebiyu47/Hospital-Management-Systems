@@ -59,9 +59,9 @@ public class InsuranceServiceImplnation implements InsuranceService{
     public InsuranceDto update(InsuranceDto insuranceDto, Long id) throws Exception {
         Insurance insurance = insuranceRepository.findById(id).orElseThrow(()->new Exception("Id Is not Found"+id));
         insurance.setId(insuranceDto.getId());
-        insurance.setBillAmount(insurance.getBillAmount());
-        insurance.setExpiryDate(insurance.getExpiryDate());
-        insurance.setPatient(insurance.getPatient());
+        insurance.setBillAmount(insuranceDto.getBillAmount());
+        insurance.setExpiryDate(insuranceDto.getExpiryDate());
+        insurance.setPatient(insuranceDto.getPatient());
        InsuranceDto insuranceDto1= convertModelToDto(insuranceRepository.save(insurance));
        return insuranceDto1;
 

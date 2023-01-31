@@ -18,7 +18,7 @@ public class Medicos {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "med_Id")
-    private Long id;
+    private Long med_Id;
     @Column(name = "medRecorded")
     private String medRecorded;
     @Column(name = "date")
@@ -29,10 +29,10 @@ public class Medicos {
     private int quantity;
     @Column(name = "total")
     private Long total;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "pat_id")
     private Patient patient;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "Doc_id")
     private Doctor doctor;
 }

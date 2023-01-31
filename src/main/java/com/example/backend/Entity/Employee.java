@@ -23,7 +23,7 @@ public class Employee {
     private String employeeName;
     @Column(name = "employeeAddress")
     private String employeeAddress;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "DEP_Id")
     private Department department;
 }

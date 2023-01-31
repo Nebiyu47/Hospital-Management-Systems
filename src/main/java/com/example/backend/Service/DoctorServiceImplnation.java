@@ -27,9 +27,9 @@ public class DoctorServiceImplnation implements DoctorService{
         doctor.setId(doctorDto.getId());
         doctor.setDoctorName(doctorDto.getDoctorName());
         doctor.setDoctorAddress(doctorDto.getDoctorAddress());
-        doctor.setDoctorPhoneNumber(doctor.getDoctorPhoneNumber());
-        doctor.setDepartment(doctor.getDepartment());
-        doctor.setSpecialization(doctor.getSpecialization());
+        doctor.setDoctorPhoneNumber(doctorDto.getDoctorPhoneNumber());
+        doctor.setDepartment(doctorDto.getDepartment());
+        doctor.setSpecialization(doctorDto.getSpecialization());
         return doctor;
     }
     private DoctorDto convertModelToDto(Doctor doctor){

@@ -14,15 +14,15 @@ import lombok.Setter;
 @Setter
 public class Operation {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "ope_id")
     private Long Id;
     @Column(name = "operationName")
     private String operationName;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "pat_id")
     private Patient patient;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "Doc_id")
     private Doctor doctor;
 }

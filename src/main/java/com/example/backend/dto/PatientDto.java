@@ -5,9 +5,12 @@ import com.example.backend.Entity.Test;
 import jakarta.persistence.Column;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
-import lombok.Data;
+import lombok.*;
 
-@Data
+
+@NoArgsConstructor
+@Getter
+@Setter
 public class PatientDto {
     private Long Id;
     private String firstName;
@@ -15,7 +18,6 @@ public class PatientDto {
     private String dateOfBirth;
     private String patientAdded;
     private Long mobileNumber;
-    private Long paid;
     private Test test;
 
     public PatientDto(Patient patient){
@@ -25,7 +27,6 @@ public class PatientDto {
         this.dateOfBirth=patient.getDateOfBirth();
         this.patientAdded=patient.getPatientAdded();
         this.mobileNumber=patient.getMobileNumber();
-        this.paid=patient.getPaid();
         this.test=patient.getTest();
     }
 

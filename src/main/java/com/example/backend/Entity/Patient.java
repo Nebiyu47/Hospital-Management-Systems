@@ -27,9 +27,7 @@ public class Patient {
     private String patientAdded;
     @Column(name="mobileNumber")
     private Long mobileNumber;
-    @Column(name="paid")
-    private Long paid;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "tid")
     private Test test;
 

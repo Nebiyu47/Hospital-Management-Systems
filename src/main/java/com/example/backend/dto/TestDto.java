@@ -3,14 +3,17 @@ package com.example.backend.dto;
 import com.example.backend.Entity.Doctor;
 import com.example.backend.Entity.Test;
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 import java.util.Date;
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class TestDto {
     private Long id;
     private String testName;
-    private Date testDate;
+    private String testDate;
     private Doctor doctor;
 
   public TestDto(Test test){

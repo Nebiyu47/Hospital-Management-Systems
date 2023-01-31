@@ -21,15 +21,13 @@ public class MedicosServiceImplnation implements MedicosService{
 
     private Medicos  convertDtoToModel(MedicosDto medicosDto){
         Medicos medicos= new Medicos();
-        medicos.setId(medicos.getId());
-        medicos.setMedRecorded(medicos.getMedRecorded());
-        medicos.setPrice(medicos.getPrice());
-        medicos.setQuantity(medicos.getQuantity());
-        medicos.setTotal(medicos.getTotal());
-        medicos.setDate(medicos.getDate());
-        medicos.setDoctor(medicos.getDoctor());
-        medicos.setPatient(medicos.getPatient());
-
+        medicos.setMed_Id(medicosDto.getId());
+        medicos.setMedRecorded(medicosDto.getMedRecorded());
+        medicos.setPrice(medicosDto.getPrice());
+        medicos.setQuantity(medicosDto.getQuantity());
+        medicos.setTotal(medicosDto.getTotal());
+        medicos.setPatient(medicosDto.getPatient());
+        medicos.setDoctor(medicosDto.getDoctor());
         return medicos;
     }
     private MedicosDto convertModelToDto(Medicos medicos){
@@ -45,7 +43,7 @@ public class MedicosServiceImplnation implements MedicosService{
     @Override
     public MedicosDto update(MedicosDto medicosDto, Long id)  throws Exception {
         Medicos medicos= medicosRepository.findById(id).orElseThrow(()-> new Exception("Id Is Not Found"+ id));
-        medicos.setId(medicosDto.getId());
+        medicos.setMed_Id(medicosDto.getId());
         medicos.setMedRecorded(medicosDto.getMedRecorded());
         medicos.setPrice(medicosDto.getPrice());
         medicos.setQuantity(medicosDto.getQuantity());

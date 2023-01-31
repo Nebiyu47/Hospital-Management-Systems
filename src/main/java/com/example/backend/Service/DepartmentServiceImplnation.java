@@ -37,7 +37,7 @@ public class DepartmentServiceImplnation implements DepartmentService{
 
     @Override
     public DepartmentDto update(DepartmentDto department,Long id) throws Exception{
-       DepartmentDto departmentDto=convertDepartmentModelTODto(departmentRepository.findById(id).orElseThrow(() -> new Exception ("Id is Not Found"+id)));
+       DepartmentDto departmentDto=convertDepartmentModelTODto(departmentRepository.getByd(id));
        departmentDto.setId(department.getId());
        departmentDto.setDepartmentName(department.getDepartmentName());
        Department department1 = convertDepartmentDtoToModel(departmentDto);
@@ -47,7 +47,7 @@ public class DepartmentServiceImplnation implements DepartmentService{
 
     @Override
     public DepartmentDto getById( long id) throws Exception {
-        Department department1 = departmentRepository.findById(id).orElseThrow(()->new Exception("No id Found"+id));
+        Department department1 = departmentRepository.findById(id).orElseThrow(()->new Exception("Id iS Not Is Found"+id));
         return convertDepartmentModelTODto(department1);
     }
 
@@ -62,9 +62,9 @@ public class DepartmentServiceImplnation implements DepartmentService{
     }
 
     @Override
-    public Map<String, Boolean> delete(Long id) throws Exception {
-       Department department1 = convertDepartmentDtoToModel(getById(id));
-       departmentRepository.delete(department1);
+    public Map<String,Boolean> delete(Long id) throws Exception {
+      Department department= convertDepartmentDtoToModel(getById(id));
+       departmentRepository.delete(department);
        Map<String,Boolean> response = new HashMap<>();
        response.put("Deleted",Boolean.TRUE);
        return response;

@@ -4,8 +4,14 @@ import com.example.backend.Entity.Department;
 
 import com.example.backend.Entity.Employee;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Data
+@NoArgsConstructor
+@Getter
+@Setter
 public class EmployeeDto {
     private Long id;
     private Long mobileNumber;

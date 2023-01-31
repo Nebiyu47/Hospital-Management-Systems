@@ -2,12 +2,12 @@ package com.example.backend.dto;
 
 import com.example.backend.Entity.Department;
 import jakarta.persistence.Column;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-@Data
+
 @NoArgsConstructor
+@Getter
+@Setter
 public class DepartmentDto {
 
     private Long Id;
